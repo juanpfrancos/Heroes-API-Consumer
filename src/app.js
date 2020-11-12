@@ -1,9 +1,16 @@
 import React from "react";
-import Home from "./components/Home";
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Heroes from './components/heroes'
+import Addhero from './components/addhero'
 
 function App() {
   return (
-      <Home />
+    <main>
+    <Router>
+      <Route path="/" exact component={Heroes} />
+      <Route path="/add" component={Addhero} />
+    </Router>
+    </main>
   );
 }
 

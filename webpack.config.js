@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "bundle.js",
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -25,6 +26,10 @@ module.exports = {
   resolve: {
     extensions: ["*", ".js", ".jsx"],
   },
+  devServer: {
+    historyApiFallback: true,
+    port: 3000
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "./styles/[name].css",
@@ -32,6 +37,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Heroes App",
       template: path.resolve(__dirname, "./src/index.html"),
+      favicon: "./src/favicon.ico",
     }),
   ],
 };
